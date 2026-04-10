@@ -7,13 +7,19 @@ export default function Nav() {
       <div className={style.nav}>
         <ul>
           <li>
-            <Link to="/">home</Link>
+            <Link to="/">
+              <button>Home</button>
+            </Link>
           </li>
           <li>
-            <Link to="store">Store</Link>
+            <Link to="store">
+              <button>Store</button>
+            </Link>
           </li>
           <li>
-            <Link to="cart">Cart</Link>
+            <Link to="cart">
+              <button>Cart</button>
+            </Link>
           </li>
         </ul>
       </div>

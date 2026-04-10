@@ -1,4 +1,33 @@
 .nav {
-  height: 300px;
-  background-color: aqua;
+  display: grid;
+  height: 60px;
+  place-items: center;
+  background-image: linear-gradient(
+    to bottom,
+    rgb(61, 61, 61),
+    rgb(41, 41, 41)
+  );
+}
+
+.nav li {
+  display: inline;
+  margin: 0 20px;
+  align-content: center;
+}
+
+button {
+  padding: 10px 30px;
+  border: none;
+  background-color: white;
+  /* taken from EFT website */
+  clip-path: polygon(
+    9px 0,
+    calc(100% - 9px) 0,
+    100% 0,
+    100% calc(100% - 9px),
+    calc(100% - 9px) 100%,
+    9px 100%,
+    0 100%,
+    0 9px
+  );
 }
