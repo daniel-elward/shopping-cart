@@ -4,8 +4,8 @@
   place-items: center;
   background-image: linear-gradient(
     to bottom,
-    rgb(61, 61, 61),
-    rgb(41, 41, 41)
+    rgb(82, 82, 82),
+    rgb(32, 33, 33)
   );
 }
 
@@ -18,7 +18,7 @@
 button {
   padding: 10px 30px;
   border: none;
-  background-color: white;
+  background-color: EEFBFF;
   /* taken from EFT website */
   clip-path: polygon(
     9px 0,
