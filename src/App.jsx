@@ -1,3 +1,9 @@
+import Nav from "./components/nav/Nav";
+
 export default function App() {
-  return <h1>test</h1>;
+  return (
+    <>
+      <Nav />
+    </>
+  );
 }
