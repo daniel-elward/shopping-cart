@@ -15,7 +15,7 @@
   align-content: center;
 }
 
-button {
+.navButton {
   padding: 10px 30px;
   border: none;
   background-color: EEFBFF;

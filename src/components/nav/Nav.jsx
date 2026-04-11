@@ -8,17 +8,17 @@ export default function Nav() {
         <ul>
           <li>
             <Link to="/">
-              <button>Home</button>
+              <button className={style.navButton}>Home</button>
             </Link>
           </li>
           <li>
             <Link to="store">
-              <button>Store</button>
+              <button className={style.navButton}>Store</button>
             </Link>
           </li>
           <li>
             <Link to="cart">
-              <button>Cart</button>
+              <button className={style.navButton}>Cart</button>
             </Link>
           </li>
         </ul>
