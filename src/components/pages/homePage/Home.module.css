@@ -1,0 +1,27 @@
+.hero {
+  text-align: center;
+  min-width: 100%;
+}
+
+.container {
+  /* width: 800px;
+  height: 450px; */
+  background-color: #202121;
+  /* background-image: url(../../../assets/killa-mask.jpg); */
+  color: #aeaeb0;
+  clip-path: polygon(
+    9px 0,
+    calc(100% - 9px) 0,
+    100% 0,
+    100% calc(100% - 9px),
+    calc(100% - 9px) 100%,
+    9px 100%,
+    0 100%,
+    0 9px
+  );
+  margin: 20px 50px;
+}
+
+p {
+  margin: 20px;
+}
