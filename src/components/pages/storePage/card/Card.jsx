@@ -4,10 +4,16 @@ import { useState } from "react";
 import Modal from "../../../Modal/Modal";
 
 export default function Card({ id, name, desc, price, icon, image, type }) {
-  const [showModal, setShowModal] = useState(false);
+  const [quantity, setQuantity] = useState(0);
 
-  const closeModal = () => {
-    setShowModal(false);
+  const increase = () => {
+    setQuantity((prevCount) => prevCount + 1);
+  };
+
+  const decrease = () => {
+    if (quantity >= 1) {
+      setQuantity((prevCount) => prevCount - 1);
+    }
   };
 
   return (
@@ -18,24 +24,19 @@ export default function Card({ id, name, desc, price, icon, image, type }) {
           src={image}
           alt={`${name} image`}
           width="150px"
-          height="150px"
         />
         <h1>{name}</h1>
+        <p>{desc}</p>
         <p>&#8381; {price}</p>
-        <button onClick={() => setShowModal(true)}>i</button>
-        {showModal && (
-          <Modal
-            close={closeModal}
-            image={image}
-            name={name}
-            type={type}
-            desc={desc}
-          />
-        )}
-        {/* <p>{desc}</p> removed using modal instead */}
-        <button>-</button>
-        <input className={style.quantityField} type="number" value="0" />
-        <button>+</button> <br />
+        <button onClick={decrease}>-</button>
+        <input
+          className={style.quantityField}
+          type="number"
+          placeholder="0"
+          value={quantity}
+          onChange={(e) => setQuantity(e.target.value)}
+        />
+        <button onClick={increase}>+</button> <br />
         <button>Add to Cart</button>
       </div>
       <Outlet />
