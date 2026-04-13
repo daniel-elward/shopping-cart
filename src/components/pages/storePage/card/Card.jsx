@@ -1,20 +1,26 @@
-import { Outlet } from "react-router";
+import { Outlet, useOutletContext } from "react-router";
 import style from "./Card.module.css";
 import { useState } from "react";
-import Modal from "../../../Modal/Modal";
 
 export default function Card({ id, name, desc, price, icon, image, type }) {
   const [quantity, setQuantity] = useState(0);
+  const [cart, setCart] = useOutletContext();
 
+  //increase button
   const increase = () => {
+    // setCart((prevCount) => prevCount + 1);
     setQuantity((prevCount) => prevCount + 1);
   };
 
+  //decrease button
   const decrease = () => {
     if (quantity >= 1) {
       setQuantity((prevCount) => prevCount - 1);
     }
   };
+
+  //add to cart
+  const addCartHandler = (callback) => {};
 
   return (
     <>

@@ -31,3 +31,8 @@
     0 9px
   );
 }
+
+.populated {
+  font-weight: bolder;
+  color: red;
+}
