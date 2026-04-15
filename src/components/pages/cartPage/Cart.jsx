@@ -1,9 +1,11 @@
 import { Outlet, useOutletContext } from "react-router";
 import { useState } from "react";
 import style from "./Cart.module.css";
+import CartCard from "./CartCard";
 
 export default function Cart() {
-  const [cart, setCart] = useOutletContext();
+  //outletContet defined in the Nav component
+  const [cart, setCart] = useOutletContext([]);
 
   //handles the click in Card.jsx to add item to cart
   const addToCartHandler = () => {};
@@ -16,7 +18,10 @@ export default function Cart() {
 
       <div className={style.container}>
         <h1>your shopping card</h1>
-        <p>State var 'cart' = {cart}</p>
+
+        {cart.map((product) => {
+          return <CartCard product={product} />;
+        })}
       </div>
 
       <Outlet />

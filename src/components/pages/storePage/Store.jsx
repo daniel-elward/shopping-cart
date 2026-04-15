@@ -34,9 +34,10 @@ export default function Store() {
         })
           .then((response) => response.json())
           .then((result) => {
-            const cleanData = result.data.items.slice(0, 43);
-            console.log(cleanData);
-            setData(cleanData);
+            console.log(result.data.items);
+            typeof result.data.items;
+
+            setData(result.data.items);
             setLoading(false);
           });
       } catch (error) {
@@ -58,15 +59,7 @@ export default function Store() {
       <h1>Store Page</h1>
       <div className={style.container}>
         {data.map((item) => {
-          return (
-            <Card
-              key={item.id}
-              name={item.name}
-              price={item.basePrice}
-              image={item.image512pxLink}
-              desc={item.description}
-            />
-          );
+          return <Card item={item} key={item.id} />;
         })}
         <Outlet />
       </div>
