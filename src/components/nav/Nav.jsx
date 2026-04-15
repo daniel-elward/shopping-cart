@@ -3,7 +3,7 @@ import style from "./Nav.module.css";
 import { Link, Outlet } from "react-router";
 
 export default function Nav() {
-  //useOutletContext for sharing cart data across store, card and cart components
+  //useOutletContext (bottom of page) for sharing cart data across store, card and cart components
   //Nav didnt seem like the best option to start the 'Context' however, i couldn't
   //see a better option
   const [cart, setCart] = useState([]);

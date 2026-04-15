@@ -1,8 +1,9 @@
+import ItemQuantity from "../../itemQuantity/ItemQuantity";
 import style from "./CartCard.module.css";
 import { useOutletContext } from "react-router";
 
 export default function CartCard({ product }) {
-  const [cart, setCart] = useOutletContext();
+  const [cart, setCart] = useOutletContext([]);
 
   const handleDelete = (idToDelete) => {
     setCart((prevItems) => prevItems.filter((item) => item.id !== idToDelete));
@@ -19,6 +20,8 @@ export default function CartCard({ product }) {
       <p>Product: {product.name}</p>
       <p>Price: &#8381; {product.basePrice}</p>
       <p>Quantity: {product.quantity}</p>
+      <p>id: {product.id}</p>
+      <ItemQuantity />
     </div>
   );
 }

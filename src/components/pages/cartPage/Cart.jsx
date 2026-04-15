@@ -7,9 +7,6 @@ export default function Cart() {
   //outletContet defined in the Nav component
   const [cart, setCart] = useOutletContext([]);
 
-  //handles the click in Card.jsx to add item to cart
-  const addToCartHandler = () => {};
-
   return (
     <>
       <div>
