@@ -4,6 +4,7 @@ import { useOutletContext } from "react-router";
 
 export default function CartCard({ product }) {
   const [cart, setCart] = useOutletContext([]);
+  const [quantity, setQuantity] = useOutletContext();
 
   const handleDelete = (idToDelete) => {
     setCart((prevItems) => prevItems.filter((item) => item.id !== idToDelete));
@@ -21,7 +22,7 @@ export default function CartCard({ product }) {
       <p>Price: &#8381; {product.basePrice}</p>
       <p>Quantity: {product.quantity}</p>
       <p>id: {product.id}</p>
-      <ItemQuantity />
+      {/* <ItemQuantity quantity={quantity} setQuantity={setQuantity} /> */}
     </div>
   );
 }

@@ -2,9 +2,7 @@ import { useState } from "react";
 import style from "./ItemQuantity.module.css";
 import { useOutletContext } from "react-router";
 
-export default function ItemQuantity({ id }) {
-  const [quantity, setQuantity] = useState(1);
-
+export default function ItemQuantity({ id, quantity, setQuantity }) {
   //increase button
   const increase = () => {
     setQuantity((prevCount) => prevCount + 1);
@@ -32,7 +30,7 @@ export default function ItemQuantity({ id }) {
         -
       </button>
       <input
-        id={id}
+        key={id}
         className={style.quantityField}
         type="number"
         value={quantity}

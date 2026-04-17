@@ -1,11 +1,9 @@
 import { Outlet, useOutletContext } from "react-router";
 import style from "./Card.module.css";
 import { useState } from "react";
-import ItemQuantity from "../../../itemQuantity/ItemQuantity";
 
 export default function Card({ item }) {
-  const [quantity, setQuantity] = useState();
-  // const [quantity, setQuantity] = useOutletContext(1);
+  const [quantity, setQuantity] = useState(1);
   const [cart, setCart] = useOutletContext();
 
   //add to cart button
@@ -16,6 +14,27 @@ export default function Card({ item }) {
     setCart((prevItem) => [...prevItem, updatedObject]);
 
     console.log(updatedObject);
+  };
+
+  //increase button
+  const increase = () => {
+    setQuantity((prevCount) => prevCount + 1);
+  };
+
+  //decrease button
+  const decrease = () => {
+    if (quantity >= 1) {
+      setQuantity((prevCount) => prevCount - 1);
+    }
+  };
+
+  const inputHandler = (e) => {
+    //without parseInt the users input adds the number as a string.
+    //which produced a bug where clicking + btn was performing
+    //concatenation of the string '1'
+    //to the value, instead of incrementing.
+    const value = parseInt(e.target.value) || 0;
+    setQuantity(value);
   };
 
   return (
@@ -31,8 +50,25 @@ export default function Card({ item }) {
         <p>{item.id}</p>
         <p>{item.description}</p>
         <p>&#8381; {item.basePrice}</p>
-        <ItemQuantity />
+        {/* <ItemQuantity getQuantity={handleQuantity} /> */}
         <br />
+
+        <button type="button" onClick={decrease}>
+          -
+        </button>
+        <input
+          id={item.id}
+          className={style.quantityField}
+          type="number"
+          value={quantity}
+          onChange={(e) => {
+            inputHandler(e);
+          }}
+        />
+        <button type="button" onClick={increase}>
+          +
+        </button>
+
         <button
           onClick={() => {
             addCartHandler(item);

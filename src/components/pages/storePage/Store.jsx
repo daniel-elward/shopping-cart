@@ -34,7 +34,7 @@ export default function Store() {
         })
           .then((response) => response.json())
           .then((result) => {
-            console.log(result.data.items);
+            // console.log(result.data.items);
             typeof result.data.items;
 
             setData(result.data.items);
