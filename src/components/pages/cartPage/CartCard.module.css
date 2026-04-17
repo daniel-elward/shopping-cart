@@ -1,3 +1,22 @@
 .productCard {
   border: 2px solid gold;
 }
+
+.quantityField {
+  width: 50px;
+  text-align: center;
+  appearance: none;
+}
+
+/* removes default add/remove arrows */
+/* Chrome, Safari, Edge, Opera */
+.quantityField::-webkit-outer-spin-button,
+.quantityField::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.quantityField[type="number"] {
+  -moz-appearance: textfield;
+}

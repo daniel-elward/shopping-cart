@@ -76,7 +76,7 @@ export default function Card({ item }) {
           Add to Cart
         </button>
       </div>
-      <Outlet />
+      <Outlet context={[quantity, setQuantity]} />
     </>
   );
 }

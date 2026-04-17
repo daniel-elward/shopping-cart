@@ -25,7 +25,7 @@ export default function Nav() {
           <li>
             <Link to="cart">
               <button className={`${style.navButton} ${style.populated}`}>
-                Cart: 22
+                Cart: {cart.length}
               </button>
             </Link>
           </li>
