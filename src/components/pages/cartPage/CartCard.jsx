@@ -1,21 +1,18 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import style from "./CartCard.module.css";
 import { useOutletContext } from "react-router";
 import { CartContext } from "../../../main";
 
 export default function CartCard({ product, updateCart }) {
-  // const [cart, setCart] = useOutletContext();
   const [cart, setCart] = useContext(CartContext);
   const [quantity, setQuantity] = useState(product.quantity);
 
-  //increase button
-  const increase = (newQuantity, productId) => {
+  const increase = (productId) => {
     setCart((prevItems) =>
       prevItems.map((item) =>
-        item.id === productId ? { ...item, quantity: newQuantity } : item,
+        item.id === productId ? { ...item, quantity: item.quantity + 1 } : item,
       ),
     );
-    // console.log(cart);
   };
 
   //decrease button
@@ -55,7 +52,7 @@ export default function CartCard({ product, updateCart }) {
         </button>
         <p>Product: {product.name}</p>
         <p>Price: &#8381; {product.basePrice}</p>
-        <p>Quantity: {quantity}</p>
+        <p>Quantity: {product.quantity}</p>
         <p>id: {product.id}</p>
 
         <button type="button" onClick={decrease}>
@@ -65,14 +62,12 @@ export default function CartCard({ product, updateCart }) {
           key={product.id}
           className={style.quantityField}
           type="number"
-          value={quantity}
+          value={product.quantity}
           onChange={(e) => {
             inputHandler(e);
           }}
         />
-        <button
-          type="button"
-          onClick={() => increase(product.quantity + 1, product.id)}>
+        <button type="button" onClick={() => increase(product.id)}>
           +
         </button>
       </div>

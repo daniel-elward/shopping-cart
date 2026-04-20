@@ -1,21 +1,13 @@
 import style from "../cartPage/OrderTotal.module.css";
+import { CartContext } from "../../../main";
+import { useContext } from "react";
 
 export default function OrderTotal({ total }) {
-  let orderTotal = null;
-  const calculateTotal = () => {
-    total.forEach((element) => {
-      const price = element.basePrice;
-      const quantity = element.quantity;
-
-      orderTotal += price * quantity;
-    });
-
-    return orderTotal;
-  };
+  const [cart, setCart] = useContext(CartContext);
 
   return (
     <div className={style.totalContainer}>
-      <p>order total: {calculateTotal()}</p>
+      <p>order total: {}</p>
     </div>
   );
 }

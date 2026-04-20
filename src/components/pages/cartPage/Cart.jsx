@@ -1,8 +1,9 @@
 import { Outlet, useOutletContext } from "react-router";
 import style from "./Cart.module.css";
 import CartCard from "./CartCard";
-import { useEffect, useState, useContext } from "react";
+import { useState, useContext } from "react";
 import { CartContext } from "../../../main";
+import OrderTotal from "./OrderTotal";
 
 export default function Cart() {
   const [cart, setCart] = useContext(CartContext);
@@ -26,18 +27,12 @@ export default function Cart() {
       <div className={style.container}>
         <h1>your shopping card</h1>
         {cart.map((product) => {
-          return (
-            <CartCard
-              key={product.id}
-              product={product}
-              updateCart={updateCart}
-            />
-          );
+          return <CartCard key={product.id} product={product} />;
         })}
       </div>
 
       <div className={style.totalContainer}>
-        <p>order total: {orderTotal}</p>
+        <OrderTotal />
       </div>
 
       <Outlet />
