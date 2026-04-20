@@ -1,10 +1,11 @@
 import { Outlet, useOutletContext } from "react-router";
 import style from "./Card.module.css";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { CartContext } from "../../../../main";
 
 export default function Card({ item }) {
   const [quantity, setQuantity] = useState(1);
-  const [cart, setCart] = useOutletContext();
+  const [cart, setCart] = useContext(CartContext);
 
   //add to cart button
   const addCartHandler = (item) => {
@@ -12,8 +13,6 @@ export default function Card({ item }) {
     const updatedObject = { ...item, quantity: quantity };
 
     setCart((prevItem) => [...prevItem, updatedObject]);
-
-    console.log(updatedObject);
   };
 
   //increase button
@@ -50,7 +49,6 @@ export default function Card({ item }) {
         <p>{item.id}</p>
         <p>{item.description}</p>
         <p>&#8381; {item.basePrice}</p>
-        {/* <ItemQuantity getQuantity={handleQuantity} /> */}
         <br />
 
         <button type="button" onClick={decrease}>
@@ -76,7 +74,8 @@ export default function Card({ item }) {
           Add to Cart
         </button>
       </div>
-      <Outlet context={[quantity, setQuantity]} />
+      {/* <Outlet context={[cart, setCart]} /> */}
+      <Outlet />
     </>
   );
 }

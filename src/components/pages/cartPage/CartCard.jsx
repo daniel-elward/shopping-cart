@@ -1,23 +1,32 @@
-import { useState } from "react";
-import ItemQuantity from "../../itemQuantity/ItemQuantity";
-import OrderTotal from "./OrderTotal";
+import { useState, useContext } from "react";
 import style from "./CartCard.module.css";
 import { useOutletContext } from "react-router";
+import { CartContext } from "../../../main";
 
-export default function CartCard({ product }) {
-  const [cart, setCart] = useOutletContext([]);
+export default function CartCard({ product, updateCart }) {
+  // const [cart, setCart] = useOutletContext();
+  const [cart, setCart] = useContext(CartContext);
   const [quantity, setQuantity] = useState(product.quantity);
 
   //increase button
-  const increase = () => {
-    setQuantity((prevCount) => prevCount + 1);
-    console.log(quantity);
+  const increase = (newQuantity, productId) => {
+    setCart((prevItems) =>
+      prevItems.map((item) =>
+        item.id === productId ? { ...item, quantity: newQuantity } : item,
+      ),
+    );
+    // console.log(cart);
   };
 
   //decrease button
   const decrease = () => {
     if (quantity >= 1) {
       setQuantity((prevCount) => prevCount - 1);
+    }
+
+    //being equal to 0 still requires an extra click to remove?
+    if (quantity < 2) {
+      handleDelete(product.id);
     }
   };
 
@@ -61,7 +70,9 @@ export default function CartCard({ product }) {
             inputHandler(e);
           }}
         />
-        <button type="button" onClick={increase}>
+        <button
+          type="button"
+          onClick={() => increase(product.quantity + 1, product.id)}>
           +
         </button>
       </div>

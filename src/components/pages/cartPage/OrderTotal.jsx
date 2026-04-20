@@ -3,8 +3,6 @@ import style from "../cartPage/OrderTotal.module.css";
 export default function OrderTotal({ total }) {
   let orderTotal = null;
   const calculateTotal = () => {
-    // JSON.stringify(total);
-
     total.forEach((element) => {
       const price = element.basePrice;
       const quantity = element.quantity;

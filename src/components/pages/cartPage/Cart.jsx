@@ -1,12 +1,21 @@
 import { Outlet, useOutletContext } from "react-router";
 import style from "./Cart.module.css";
 import CartCard from "./CartCard";
-import OrderTotal from "./OrderTotal";
+import { useEffect, useState, useContext } from "react";
+import { CartContext } from "../../../main";
 
 export default function Cart() {
-  //outletContet defined in the Nav component
-  const [cart, setCart] = useOutletContext([]);
-  const [quantity, setQuantity] = useOutletContext();
+  const [cart, setCart] = useContext(CartContext);
+  const [orderTotal, setOrderTotal] = useState(0);
+
+  //callback function to update cart from CartCard Component
+  const updateCart = (newQuantity, productId) => {
+    setCart((prevItem) =>
+      prevItem.map((item) =>
+        item.id === productId ? { ...item, quantity: newQuantity } : item,
+      ),
+    );
+  };
 
   return (
     <>
@@ -16,15 +25,20 @@ export default function Cart() {
 
       <div className={style.container}>
         <h1>your shopping card</h1>
-
         {cart.map((product) => {
           return (
-            <CartCard key={product.id} product={product} quantity={quantity} />
+            <CartCard
+              key={product.id}
+              product={product}
+              updateCart={updateCart}
+            />
           );
         })}
       </div>
 
-      <OrderTotal total={cart} />
+      <div className={style.totalContainer}>
+        <p>order total: {orderTotal}</p>
+      </div>
 
       <Outlet />
     </>
