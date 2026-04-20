@@ -16,15 +16,12 @@ export default function CartCard({ product, updateCart }) {
   };
 
   //decrease button
-  const decrease = () => {
-    if (quantity >= 1) {
-      setQuantity((prevCount) => prevCount - 1);
-    }
-
-    //being equal to 0 still requires an extra click to remove?
-    if (quantity < 2) {
-      handleDelete(product.id);
-    }
+  const decrease = (productId) => {
+    setCart((prevItems) =>
+      prevItems.map((item) =>
+        item.id === productId ? { ...item, quantity: item.quantity - 1 } : item,
+      ),
+    );
   };
 
   //quantity change
@@ -55,7 +52,7 @@ export default function CartCard({ product, updateCart }) {
         <p>Quantity: {product.quantity}</p>
         <p>id: {product.id}</p>
 
-        <button type="button" onClick={decrease}>
+        <button type="button" onClick={() => decrease(product.id)}>
           -
         </button>
         <input
