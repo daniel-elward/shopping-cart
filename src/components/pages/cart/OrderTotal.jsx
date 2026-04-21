@@ -1,4 +1,4 @@
-import style from "../cartPage/OrderTotal.module.css";
+import style from "./OrderTotal.module.css";
 import { CartContext } from "../../../main";
 import { useContext, useState } from "react";
 

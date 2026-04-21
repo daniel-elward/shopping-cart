@@ -32,8 +32,6 @@ export default function Nav({ children }) {
         </ul>
       </div>
 
-      {/* outlet renders content based on url */}
-      {/* allows for a persistent navigation on page */}
       <div>
         <Outlet context={[cart, setCart]} />
       </div>

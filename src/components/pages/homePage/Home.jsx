@@ -4,9 +4,6 @@ import style from "./Home.module.css";
 export default function Home() {
   return (
     <>
-      {/* <div className={style.hero}>
-        <img src="src/assets/bear-wallpaper-2000.jpg" alt="" />
-      </div> */}
       <div className={style.container}>
         <h1>ESCAPE FROM TARKOV</h1>
         <h2>PMC ONLINE STORE</h2>

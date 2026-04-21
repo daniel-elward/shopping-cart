@@ -1,8 +1,8 @@
 import { Outlet, useOutletContext } from "react-router";
 import style from "./Card.module.css";
 import { useState, useContext } from "react";
-import { CartContext } from "../../../../main";
-import AddToCartButton from "../../../AddToCartButton";
+import { CartContext } from "../../../main";
+import AddToCartButton from "../cart/AddToCartBtn";
 
 export default function Card({ item }) {
   const [quantity, setQuantity] = useState(1);
@@ -21,10 +21,8 @@ export default function Card({ item }) {
   };
 
   const inputHandler = (e) => {
-    //without parseInt the users input adds the number as a string.
-    //which produced a bug where clicking + btn was performing
-    //concatenation of the string '1'
-    //to the value, instead of incrementing.
+    //parseInt to ensure value is not a string.
+    //duplicate code, look at cleaning this
     const value = parseInt(e.target.value) || 0;
     setQuantity(value);
   };

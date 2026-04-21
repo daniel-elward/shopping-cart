@@ -1,14 +1,12 @@
-import { Outlet, useOutletContext } from "react-router";
 import style from "./Store.module.css";
+import Card from "./Card";
+import { Outlet } from "react-router";
 import { useState, useEffect } from "react";
-import Card from "../storePage/card/Card";
 
 export default function Store() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [data, setData] = useState([]);
-
-  const [cart, setCart] = useOutletContext();
 
   const apiQuery = `{
                 items(types: [injectors, meds]) {
@@ -62,7 +60,7 @@ export default function Store() {
         {data.map((item) => {
           return <Card item={item} key={item.id} />;
         })}
-        <Outlet context={[cart, setCart]} />
+        <Outlet />
       </div>
     </>
   );
