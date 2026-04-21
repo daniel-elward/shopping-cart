@@ -16,10 +16,16 @@ export default function CartCard({ product, updateCart }) {
   };
 
   //decrease button
-  const decrease = (productId) => {
+  const decrease = (product) => {
+    //for some reason this needs to be < 2 to work?
+    if (product.quantity < 2) {
+      handleDelete(product.id);
+    }
     setCart((prevItems) =>
       prevItems.map((item) =>
-        item.id === productId ? { ...item, quantity: item.quantity - 1 } : item,
+        item.id === product.id
+          ? { ...item, quantity: item.quantity - 1 }
+          : item,
       ),
     );
   };
@@ -52,7 +58,7 @@ export default function CartCard({ product, updateCart }) {
         <p>Quantity: {product.quantity}</p>
         <p>id: {product.id}</p>
 
-        <button type="button" onClick={() => decrease(product.id)}>
+        <button type="button" onClick={() => decrease(product)}>
           -
         </button>
         <input

@@ -2,18 +2,11 @@ import { Outlet, useOutletContext } from "react-router";
 import style from "./Card.module.css";
 import { useState, useContext } from "react";
 import { CartContext } from "../../../../main";
+import AddToCartButton from "../../../AddToCartButton";
 
 export default function Card({ item }) {
   const [quantity, setQuantity] = useState(1);
   const [cart, setCart] = useContext(CartContext);
-
-  //add to cart button
-  const addCartHandler = (item) => {
-    //spread operator to add the quantity to the item object
-    const updatedObject = { ...item, quantity: quantity };
-
-    setCart((prevItem) => [...prevItem, updatedObject]);
-  };
 
   //increase button
   const increase = () => {
@@ -35,6 +28,8 @@ export default function Card({ item }) {
     const value = parseInt(e.target.value) || 0;
     setQuantity(value);
   };
+
+  const inCart = cart.some((cartItem) => cartItem.id === item.id);
 
   return (
     <>
@@ -67,14 +62,8 @@ export default function Card({ item }) {
           +
         </button>
 
-        <button
-          onClick={() => {
-            addCartHandler(item);
-          }}>
-          Add to Cart
-        </button>
+        <AddToCartButton item={item} quantity={quantity} />
       </div>
-      {/* <Outlet context={[cart, setCart]} /> */}
       <Outlet />
     </>
   );
