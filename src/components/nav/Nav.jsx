@@ -1,7 +1,8 @@
 import { useState } from "react";
 import style from "./Nav.module.css";
 import { Link, Outlet } from "react-router";
-import { CartContext } from "../../main";
+// import { CartContext } from "../../main";
+import { CartContext } from "../../cartContext";
 
 export default function Nav({ children }) {
   //useOutletContext (bottom of page) for sharing cart data across store, card and cart components
@@ -11,7 +12,7 @@ export default function Nav({ children }) {
     <CartContext.Provider value={[cart, setCart]}>
       {children}
       <div className={style.nav}>
-        <ul>
+        <ul className="test">
           <li>
             <Link to="/">
               <button className={style.navButton}>Home</button>

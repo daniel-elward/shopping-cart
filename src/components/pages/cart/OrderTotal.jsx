@@ -1,5 +1,6 @@
 import style from "./OrderTotal.module.css";
-import { CartContext } from "../../../main";
+// import { CartContext } from "../../../main";
+import { CartContext } from "../../../cartContext";
 import { useContext, useState } from "react";
 
 export default function OrderTotal() {

@@ -2,7 +2,8 @@ import { Outlet, useOutletContext } from "react-router";
 import style from "./Cart.module.css";
 import CartCard from "./CartCard";
 import { useState, useContext } from "react";
-import { CartContext } from "../../../main";
+// import { CartContext } from "../../../main";
+import { CartContext } from "../../../cartContext";
 import OrderTotal from "./OrderTotal";
 
 export default function Cart() {

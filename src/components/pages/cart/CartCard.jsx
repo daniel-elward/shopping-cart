@@ -1,6 +1,7 @@
 import { useState, useContext } from "react";
 import style from "./CartCard.module.css";
-import { CartContext } from "../../../main";
+// import { CartContext } from "../../../main";
+import { CartContext } from "../../../cartContext";
 
 export default function CartCard({ product, updateCart }) {
   const [cart, setCart] = useContext(CartContext);

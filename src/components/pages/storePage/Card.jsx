@@ -1,7 +1,8 @@
 import { Outlet, useOutletContext } from "react-router";
 import style from "./Card.module.css";
 import { useState, useContext } from "react";
-import { CartContext } from "../../../main";
+// import { CartContext } from "../../../main";
+import { CartContext } from "../../../cartContext";
 import AddToCartButton from "../cart/AddToCartBtn";
 
 export default function Card({ item }) {
