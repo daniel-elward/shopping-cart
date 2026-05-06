@@ -3,7 +3,7 @@ import style from "./Card.module.css";
 import { useState, useContext } from "react";
 // import { CartContext } from "../../../main";
 import { CartContext } from "../../../cartContext";
-import AddToCartButton from "../cart/AddToCartBtn";
+import AddToCartButton from "../cartPage/AddToCartBtn";
 
 export default function Card({ item }) {
   const [quantity, setQuantity] = useState(1);

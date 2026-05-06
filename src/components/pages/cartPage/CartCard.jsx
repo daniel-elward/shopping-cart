@@ -43,16 +43,9 @@ export default function CartCard({ product, updateCart }) {
     <>
       <div className={style.productCard}>
         <img src={product.iconLink} alt="" />
-        <button
-          onClick={() => {
-            handleDelete(product.id);
-          }}>
-          delete
-        </button>
         <p>Product: {product.name}</p>
         <p>Price: &#8381; {product.basePrice}</p>
         <p>Quantity: {product.quantity}</p>
-        <p>id: {product.id}</p>
 
         <button type="button" onClick={() => decrease(product)}>
           -
@@ -68,6 +61,12 @@ export default function CartCard({ product, updateCart }) {
         />
         <button type="button" onClick={() => increase(product.id)}>
           +
+        </button>
+        <button
+          onClick={() => {
+            handleDelete(product.id);
+          }}>
+          Remove
         </button>
       </div>
     </>

@@ -12,6 +12,7 @@ export default function OrderTotal() {
 
   return (
     <div className={style.totalContainer}>
+      <h2>Your Cart</h2>
       <p>order total: {total}</p>
     </div>
   );

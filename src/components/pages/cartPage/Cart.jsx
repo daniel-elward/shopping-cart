@@ -23,17 +23,15 @@ export default function Cart() {
     <>
       <div>
         <h1>Cart page</h1>
+        <h1>your shopping card</h1>
       </div>
 
       <div className={style.container}>
-        <h1>your shopping card</h1>
+        <OrderTotal />
+
         {cart.map((product) => {
           return <CartCard key={product.id} product={product} />;
         })}
-      </div>
-
-      <div className={style.totalContainer}>
-        <OrderTotal />
       </div>
 
       <Outlet />

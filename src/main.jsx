@@ -10,7 +10,7 @@ import "./assets/index.css";
 import Nav from "./components/nav/Nav";
 import Home from "./components/pages/homePage/Home";
 import Store from "./components/pages/storePage/Store";
-import Cart from "./components/pages/cart/Cart";
+import Cart from "./components/pages/cartPage/Cart";
 
 //context moved to its own file
 //having it in main.jsx was causing propblems when testing

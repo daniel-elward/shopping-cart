@@ -1,5 +1,8 @@
 .productCard {
-  border: 2px solid gold;
+  width: auto;
+  grid-column: 1/2;
+  background-color: #202121;
+  margin: 10px;
 }
 
 .quantityField {
