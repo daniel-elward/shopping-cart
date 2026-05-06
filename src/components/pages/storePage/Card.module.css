@@ -27,8 +27,23 @@
 }
 
 .cardDescription {
+  height: 200px;
+  overflow: auto;
   grid-column: 1/3;
   grid-row: 3/4;
+}
+
+.cardDescription::-webkit-scrollbar {
+  width: 5px;
+}
+
+.cardDescription::-webkit-scrollbar-track {
+  display: none;
+}
+
+.cardDescription::-webkit-scrollbar-thumb {
+  border-radius: 50px;
+  background-color: #927f5e;
 }
 
 .cardPrice {

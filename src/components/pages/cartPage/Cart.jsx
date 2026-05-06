@@ -21,9 +21,8 @@ export default function Cart() {
 
   return (
     <>
-      <div>
-        <h1>Cart page</h1>
-        <h1>your shopping card</h1>
+      <div className={style.title}>
+        <h1>Your cart</h1>
       </div>
 
       <div className={style.container}>

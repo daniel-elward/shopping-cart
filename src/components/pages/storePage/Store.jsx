@@ -55,7 +55,9 @@ export default function Store() {
 
   return (
     <>
-      <h1>Store Page</h1>
+      <div className={style.title}>
+        <h1>Store</h1>
+      </div>
       <div className={style.container}>
         {data.map((item) => {
           return <Card item={item} key={item.id} />;

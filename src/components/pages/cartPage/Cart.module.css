@@ -3,10 +3,16 @@
   grid-template-columns: 2fr 1fr;
 }
 
+.title {
+  text-align: center;
+  color: #927f5e;
+}
+
 .emptyCart {
   width: auto;
   background-color: #202121;
   margin: 10px;
   border: 1px solid #927f5e;
   text-align: center;
+  align-self: center;
 }

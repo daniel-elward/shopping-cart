@@ -3,3 +3,8 @@
   flex-wrap: wrap;
   justify-content: center;
 }
+
+.title {
+  text-align: center;
+  color: #927f5e;
+}
