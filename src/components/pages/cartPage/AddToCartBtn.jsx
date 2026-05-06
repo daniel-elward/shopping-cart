@@ -22,7 +22,7 @@ export default function AddToCartButton({ item, quantity }) {
       onClick={() => {
         addCartHandler(item);
       }}>
-      {inCart ? "In Cart" : "Add to Cart"}
+      {inCart ? "In Cart" : "Add"}
     </button>
   );
 }

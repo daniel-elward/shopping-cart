@@ -17,8 +17,23 @@
     0 9px
   );
   margin: 20px 50px;
+  padding: 50px 130px;
 }
 
 p {
   margin: 20px;
+}
+
+.cardWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  justify-self: center;
+}
+
+.card {
+  width: 400px;
+  height: 200px;
+  margin: 20px;
+  border: 1px solid #927f5e;
 }

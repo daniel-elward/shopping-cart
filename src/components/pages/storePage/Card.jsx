@@ -33,35 +33,54 @@ export default function Card({ item }) {
   return (
     <>
       <div className={style.card}>
-        <img
-          className={style.center}
-          src={item.image512pxLink}
-          alt={`${name} image`}
-          width="150px"
-        />
-        <h1>{item.name}</h1>
-        <p>{item.id}</p>
-        <p>{item.description}</p>
-        <p>&#8381; {item.basePrice}</p>
+        <div className={style.cardImage}>
+          <img
+            className={style.center}
+            src={item.image512pxLink}
+            alt={`${name} image`}
+            width="150px"
+          />
+        </div>
+
+        <div className={style.cardName}>
+          <h1>{item.name}</h1>
+        </div>
+
+        <div className={style.cardDescription}>
+          <p>{item.description}</p>
+        </div>
+
+        <div className={style.cardPrice}>
+          <p>&#8381; {item.basePrice}</p>
+        </div>
+
         <br />
 
-        <button className={style.cardButtons} type="button" onClick={decrease}>
-          -
-        </button>
-        <input
-          id={item.id}
-          className={style.quantityField}
-          type="number"
-          value={quantity}
-          onChange={(e) => {
-            inputHandler(e);
-          }}
-        />
-        <button className={style.cardButtons} type="button" onClick={increase}>
-          +
-        </button>
+        <div className={style.cardControls}>
+          <button
+            className={style.cardButtons}
+            type="button"
+            onClick={decrease}>
+            -
+          </button>
+          <input
+            id={item.id}
+            className={style.quantityField}
+            type="number"
+            value={quantity}
+            onChange={(e) => {
+              inputHandler(e);
+            }}
+          />
+          <button
+            className={style.cardButtons}
+            type="button"
+            onClick={increase}>
+            +
+          </button>
 
-        <AddToCartButton item={item} quantity={quantity} />
+          <AddToCartButton item={item} quantity={quantity} />
+        </div>
       </div>
       <Outlet />
     </>
