@@ -24,6 +24,19 @@
   width: 50px;
   text-align: center;
   appearance: none;
+  border: 1px solid #927f5e;
+  color: #aeaeb0;
+  background-color: #202121;
+  padding: 5px;
+  font-weight: 800;
+}
+
+.cardButtons {
+  border: 1px solid #927f5e;
+  color: #aeaeb0;
+  background-color: #202121;
+  padding: 5px;
+  font-weight: 800;
 }
 
 /* removes default add/remove arrows */

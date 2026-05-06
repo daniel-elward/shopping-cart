@@ -1,6 +1,7 @@
 import { useState, useContext } from "react";
 // import { CartContext } from "../../../main";
 import { CartContext } from "../../../cartContext";
+import style from "./AddToCartButton.module.css";
 
 export default function AddToCartButton({ item, quantity }) {
   const [cart, setCart] = useContext(CartContext);
@@ -16,6 +17,7 @@ export default function AddToCartButton({ item, quantity }) {
 
   return (
     <button
+      className={style.cardButtons}
       disabled={inCart}
       onClick={() => {
         addCartHandler(item);

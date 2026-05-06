@@ -45,7 +45,7 @@ export default function Card({ item }) {
         <p>&#8381; {item.basePrice}</p>
         <br />
 
-        <button type="button" onClick={decrease}>
+        <button className={style.cardButtons} type="button" onClick={decrease}>
           -
         </button>
         <input
@@ -57,7 +57,7 @@ export default function Card({ item }) {
             inputHandler(e);
           }}
         />
-        <button type="button" onClick={increase}>
+        <button className={style.cardButtons} type="button" onClick={increase}>
           +
         </button>
 
