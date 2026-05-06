@@ -25,13 +25,18 @@ export default function Cart() {
         <h1>Cart page</h1>
         <h1>your shopping card</h1>
       </div>
-
+      {console.log(cart)}
       <div className={style.container}>
         <OrderTotal />
-
-        {cart.map((product) => {
-          return <CartCard key={product.id} product={product} />;
-        })}
+        {cart.length === 0 ? (
+          <div className={style.emptyCart}>
+            <p>Nothing in cart</p>
+          </div>
+        ) : (
+          cart.map((product) => {
+            return <CartCard key={product.id} product={product} />;
+          })
+        )}
       </div>
 
       <Outlet />
