@@ -42,32 +42,41 @@ export default function CartCard({ product, updateCart }) {
   return (
     <>
       <div className={style.productCard}>
-        <img src={product.iconLink} alt="" />
-        <p>Product: {product.name}</p>
-        <p>Price: &#8381; {product.basePrice}</p>
-        <p>Quantity: {product.quantity}</p>
+        <div className={style.icon}>
+          <img src={product.iconLink} alt="" />
+        </div>
+        <div className={style.productDetails}>
+          <p>Product: {product.name}</p>
+          <p>Price: &#8381; {product.basePrice}</p>
+          <p>Quantity: {product.quantity}</p>
+        </div>
 
-        <button type="button" onClick={() => decrease(product)}>
-          -
-        </button>
-        <input
-          key={product.id}
-          className={style.quantityField}
-          type="number"
-          value={product.quantity}
-          onChange={(e) => {
-            inputHandler(e);
-          }}
-        />
-        <button type="button" onClick={() => increase(product.id)}>
-          +
-        </button>
-        <button
-          onClick={() => {
-            handleDelete(product.id);
-          }}>
-          Remove
-        </button>
+        <div className={style.remove}>
+          <button
+            onClick={() => {
+              handleDelete(product.id);
+            }}>
+            X
+          </button>
+        </div>
+
+        <div className={style.controls}>
+          <button type="button" onClick={() => decrease(product)}>
+            -
+          </button>
+          <input
+            key={product.id}
+            className={style.quantityField}
+            type="number"
+            value={product.quantity}
+            onChange={(e) => {
+              inputHandler(e);
+            }}
+          />
+          <button type="button" onClick={() => increase(product.id)}>
+            +
+          </button>
+        </div>
       </div>
     </>
   );
