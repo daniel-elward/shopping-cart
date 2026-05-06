@@ -10,10 +10,19 @@ export default function OrderTotal() {
     return runningTotal + item.basePrice * item.quantity;
   }, 0);
 
+  const tax = Math.round((total / 100) * 20);
+
+  function tax1() {
+    return 3 * 0.2;
+  }
+
   return (
     <div className={style.totalContainer}>
       <h2>Your Cart</h2>
-      <p>order total: {total}</p>
+      <p>Cart Total: {total}</p>
+      <p>Shipping: FREE</p>
+      <p>Taxes: &#8381; {tax}</p>
+      <p>Order total: {total + tax}</p>
     </div>
   );
 }

@@ -25,7 +25,7 @@ export default function Cart() {
         <h1>Cart page</h1>
         <h1>your shopping card</h1>
       </div>
-      {console.log(cart)}
+
       <div className={style.container}>
         <OrderTotal />
         {cart.length === 0 ? (
