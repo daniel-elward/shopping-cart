@@ -3,7 +3,7 @@
   grid-column: 2/3;
   grid-row: 1;
   position: sticky;
-  top: 50px;
+  top: 100px;
   background-color: #202121;
   margin: 10px;
 }

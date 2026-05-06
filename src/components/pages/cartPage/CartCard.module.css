@@ -12,6 +12,19 @@
   width: 50px;
   text-align: center;
   appearance: none;
+  border: 1px solid #927f5e;
+  color: #aeaeb0;
+  background-color: #202121;
+  padding: 5px;
+  font-weight: 800;
+}
+
+.cardButtons {
+  border: 1px solid #927f5e;
+  color: #aeaeb0;
+  background-color: #202121;
+  padding: 5px;
+  font-weight: 800;
 }
 
 .icon {
@@ -26,9 +39,6 @@
   grid-row: 1/2;
   justify-self: end;
   margin: 10px;
-}
-
-.remove button {
 }
 
 .productDetails {
