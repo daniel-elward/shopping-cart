@@ -1,20 +1,23 @@
 import { Outlet } from "react-router";
 import style from "./Home.module.css";
+import knightImage from "../../../assets/knight.jpg";
+import killaImage from "../../../assets/killa.jpg";
+import pmcImage from "../../../assets/pmc.jpg";
 
 export default function Home() {
   return (
     <>
       <div className={style.cardWrapper}>
         <div className={style.card}>
-          <img src="src/assets/pmc.jpg" alt="PMC operator" />
+          <img src={pmcImage} alt="PMC operator" />
         </div>
 
         <div className={style.card}>
-          <img src="src/assets/knight.jpg" alt="EFT boss: Knight" />
+          <img src={knightImage} alt="EFT boss: Knight" />
         </div>
 
         <div className={style.card}>
-          <img src="src/assets/killa.jpg" alt="EFT boss: Killa" />
+          <img src={killaImage} alt="EFT boss: Killa" />
         </div>
       </div>
 
