@@ -66,3 +66,13 @@
 .quantityField[type="number"] {
   -moz-appearance: textfield;
 }
+
+@media (max-width: 490px) {
+  .productCard {
+    padding: 0;
+  }
+
+  .controls {
+    grid-column: 2/3;
+  }
+}
