@@ -1,6 +1,5 @@
 import { useState, useContext } from "react";
 import style from "./CartCard.module.css";
-// import { CartContext } from "../../../main";
 import { CartContext } from "../../../cartContext";
 
 export default function CartCard({ product, updateCart }) {
@@ -43,7 +42,7 @@ export default function CartCard({ product, updateCart }) {
     <>
       <div className={style.productCard}>
         <div className={style.icon}>
-          <img src={product.iconLink} alt="" />
+          <img src={product.iconLink} alt={`${product.name} icon`} />
         </div>
         <div className={style.productDetails}>
           <p>Product: {product.name}</p>

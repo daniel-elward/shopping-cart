@@ -13,7 +13,7 @@ export default function AddToCartButton({ item, quantity }) {
     setCart((prevItem) => [...prevItem, updatedObject]);
   };
 
-  const inCart = cart.some((cartItem) => cartItem.id === item.id);
+  const inCart = (cart || []).some((cartItem) => cartItem.id === item.id);
 
   return (
     <button

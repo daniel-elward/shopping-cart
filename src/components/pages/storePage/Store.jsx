@@ -2,51 +2,27 @@ import style from "./Store.module.css";
 import Card from "./Card";
 import { Outlet } from "react-router";
 import { useState, useEffect } from "react";
+import { api } from "../../../api/storeApi";
+import { apiQuery } from "../../../api/storeApiQuery";
 
 export default function Store() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [data, setData] = useState([]);
 
-  const apiQuery = `{
-                items(types: [injectors, meds]) {
-                  id
-                  name
-                  description
-                  basePrice
-                  iconLink
-                  image512pxLink
-                  types
-              }
-            }`;
-
   useEffect(() => {
-    const fetchData = async () => {
+    async function getData() {
       try {
-        const response = await fetch("https://api.tarkov.dev/graphql", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            query: apiQuery,
-          }),
-        })
-          .then((response) => response.json())
-          .then((result) => {
-            typeof result.data.items;
+        const data = await api(apiQuery);
 
-            setData(result.data.items);
-            setLoading(false);
-          });
-      } catch (error) {
-        setError(error.message);
+        setData(data.items);
         setLoading(false);
-        console.log(error);
+      } catch (error) {
+        console.error(error);
       }
-    };
+    }
 
-    fetchData();
+    getData();
   }, []);
 
   if (loading) {
